@@ -1,9 +1,4 @@
-/**
-* Template Name: Resi - v4.10.0
-* Template URL: https://bootstrapmade.com/resi-free-bootstrap-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 (function() {
   "use strict";
 
@@ -93,23 +88,6 @@
     window.addEventListener('load', headerScrolled)
     onscroll(document, headerScrolled)
   }
-
-  /**
-   * Back to top button
-   */
-  let backtotop = select('.back-to-top')
-  if (backtotop) {
-    const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add('active')
-      } else {
-        backtotop.classList.remove('active')
-      }
-    }
-    window.addEventListener('load', toggleBacktotop)
-    onscroll(document, toggleBacktotop)
-  }
-
   /**
    * Mobile nav toggle
    */
@@ -157,132 +135,8 @@
       }
     }
   });
-
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
-      });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-
-      }, true);
-    }
-
-  });
-
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
-
-
-
-
-
-
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  /**
-   * Initiate Pure Counter 
-   */
-  new PureCounter();
-
 })()
 
 
-
-
-/**
-   * Testimonials slider
-   */
-new Swiper('.testimonials-slider', {
-  speed: 600,
-  loop: true,
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false
-  },
-  slidesPerView: 'auto',
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'bullets',
-    clickable: true
-  },
-  breakpoints: {
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-
-    1200: {
-      slidesPerView: 3,
-      spaceBetween: 20
-    }
-  }
-});
-
-
-// app.js
-
-
-
-// back to top button
-
-
-var backToTopButton = document.querySelector(".back-to-top");
-
-window.addEventListener("scroll", function() {
-    var scrollHeight = document.documentElement.scrollHeight;
-    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    var percentScrolled = (scrollTop / (scrollHeight - window.innerHeight)) * 100;
-
-    if (percentScrolled > 20) {
-        backToTopButton.classList.add("active");
-    } else {
-        backToTopButton.classList.remove("active");
-    }
-
-    backToTopButton.setAttribute("data-scroll", Math.round(percentScrolled) + "%");
-});
-
-backToTopButton.addEventListener("click", function() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
 
 
